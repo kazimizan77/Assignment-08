@@ -1,0 +1,110 @@
+[
+  {
+    "id": "1",
+    "title": "A Brief History of Time",
+    "author": "Stephen Hawking",
+    "description": "A landmark work that brings cosmology and theoretical physics to everyday readers — exploring the Big Bang, black holes, and the very nature of time and space.",
+    "category": "Science",
+    "available_quantity": 5,
+    "image_url": "https://covers.openlibrary.org/b/isbn/0553380168-L.jpg"
+  },
+  {
+    "id": "2",
+    "title": "The Alchemist",
+    "author": "Paulo Coelho",
+    "description": "A magical story about Santiago, an Andalusian shepherd boy who yearns to travel in search of a worldly treasure as extravagant as any ever found.",
+    "category": "Story",
+    "available_quantity": 7,
+    "image_url": "https://covers.openlibrary.org/b/isbn/0062315007-L.jpg"
+  },
+  {
+    "id": "3",
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
+    "description": "A handbook of agile software craftsmanship that teaches programmers how to write clean, readable, and maintainable code.",
+    "category": "Tech",
+    "available_quantity": 3,
+    "image_url": "https://covers.openlibrary.org/b/isbn/0132350882-L.jpg"
+  },
+  {
+    "id": "4",
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "description": "A proven framework for improving every day. Learn how tiny changes in behavior can lead to remarkable results in your life.",
+    "category": "Story",
+    "available_quantity": 10,
+    "image_url": "https://covers.openlibrary.org/b/isbn/0735211299-L.jpg"
+  },
+  {
+    "id": "5",
+    "title": "Cosmos",
+    "author": "Carl Sagan",
+    "description": "A personal voyage through the universe, exploring the origins of life, the nature of science, and humanity's place in the cosmos.",
+    "category": "Science",
+    "available_quantity": 4,
+    "image_url": "https://covers.openlibrary.org/b/isbn/0345539435-L.jpg"
+  },
+  {
+    "id": "6",
+    "title": "The Pragmatic Programmer",
+    "author": "David Thomas",
+    "description": "A guide for programmers who want to become more effective, covering topics from personal responsibility to career development.",
+    "category": "Tech",
+    "available_quantity": 6,
+    "image_url": "https://covers.openlibrary.org/b/isbn/0135957052-L.jpg"
+  },
+  {
+    "id": "7",
+    "title": "Sapiens",
+    "author": "Yuval Noah Harari",
+    "description": "A brief history of humankind that explores how Homo sapiens came to dominate the earth and what the future holds for our species.",
+    "category": "Science",
+    "available_quantity": 8,
+    "image_url": "https://covers.openlibrary.org/b/isbn/0062316095-L.jpg"
+  },
+  {
+    "id": "8",
+    "title": "1984",
+    "author": "George Orwell",
+    "description": "A dystopian masterpiece set in a totalitarian society where Big Brother watches your every move and the truth is whatever the Party says it is.",
+    "category": "Story",
+    "available_quantity": 9,
+    "image_url": "https://covers.openlibrary.org/b/isbn/0451524934-L.jpg"
+  },
+  {
+    "id": "9",
+    "title": "You Don't Know JS",
+    "author": "Kyle Simpson",
+    "description": "A deep dive into the core mechanisms of the JavaScript language, covering scope, closures, types, and asynchronous programming.",
+    "category": "Tech",
+    "available_quantity": 5,
+    "image_url": "https://covers.openlibrary.org/b/isbn/1491904151-L.jpg"
+  },
+  {
+    "id": "10",
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "description": "A story of the fabulously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan, set against the backdrop of the Jazz Age.",
+    "category": "Story",
+    "available_quantity": 6,
+    "image_url": "https://covers.openlibrary.org/b/isbn/0743273567-L.jpg"
+  },
+  {
+    "id": "11",
+    "title": "The Selfish Gene",
+    "author": "Richard Dawkins",
+    "description": "A groundbreaking work that introduces the gene-centered view of evolution and the concept of the meme as a unit of cultural transmission.",
+    "category": "Science",
+    "available_quantity": 3,
+    "image_url": "https://covers.openlibrary.org/b/isbn/0198788606-L.jpg"
+  },
+  {
+    "id": "12",
+    "title": "JavaScript: The Good Parts",
+    "author": "Douglas Crockford",
+    "description": "A concise guide to the most reliable and elegant features of JavaScript, helping developers write better and more maintainable code.",
+    "category": "Tech",
+    "available_quantity": 7,
+    "image_url": "https://covers.openlibrary.org/b/isbn/0596517742-L.jpg"
+  }
+]
