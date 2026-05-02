@@ -15,7 +15,6 @@ export default function Navbar() {
           </div>
           <span className="text-[17px] font-bold text-[#1a365d] font-serif">
             Book<span className="text-[#c8860a]">Nest</span>
-            <span className="text-[#c8860a]">.</span>
           </span>
         </Link>
 
