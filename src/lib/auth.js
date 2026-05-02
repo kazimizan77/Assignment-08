@@ -1,14 +1,21 @@
 import { betterAuth } from "better-auth";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
-import mongoose from "mongoose";
-import connectDB from "./db";
+import { MongoClient } from "mongodb";
 
-await connectDB();
+const client = new MongoClient(process.env.MONGODB_URI);
 
 export const auth = betterAuth({
-  database: mongodbAdapter(mongoose.connection),
+  database: mongodbAdapter(client.db()),
   emailAndPassword: {
     enabled: true,
+  },
+  user: {
+    additionalFields: {
+      image: {
+        type: "string",
+        required: false,
+      },
+    },
   },
   socialProviders: {
     google: {

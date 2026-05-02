@@ -2,9 +2,12 @@
 import Link from "next/link";
 import { useState } from "react";
 import { BsBook } from "react-icons/bs";
+import { Image } from "next/image";
+import { authClient } from "@/lib/auth-client";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { data: session } = authClient.useSession();
 
   return (
     <nav className="bg-white border-b-2 border-[#1a365d] sticky top-0 z-50 shadow-sm">
@@ -35,18 +38,48 @@ export default function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-2">
-          <Link
-            href="/login"
-            className="text-[12px] font-medium text-[#1a365d] border-[1.5px] border-[#1a365d] px-4 py-1.5 rounded-md no-underline hover:bg-[#1a365d] hover:text-white transition-all duration-200"
-          >
-            Log in
-          </Link>
-          <Link
-            href="/register"
-            className="text-[12px] font-medium text-white bg-[#1a365d] px-4 py-1.5 rounded-md no-underline hover:bg-[#c8860a] transition-all duration-200"
-          >
-            Register
-          </Link>
+          {session ? (
+            <>
+              <div className="flex items-center gap-2">
+                {session.user.image ? (
+                  <img
+                    src={session.user.image}
+                    alt={session.user.name}
+                    referrerPolicy="no-referrer"
+                    className="w-8 h-8 rounded-full object-cover border-2 border-[#1a365d]"
+                  />
+                ) : (
+                  <div className="w-8 h-8 rounded-full bg-[#1a365d] flex items-center justify-center text-white text-xs font-bold">
+                    {session.user.name?.charAt(0).toUpperCase()}
+                  </div>
+                )}
+                <span className="text-sm font-medium text-[#1a365d]">
+                  {session.user.name}
+                </span>
+              </div>
+              <button
+                onClick={() => authClient.signOut()}
+                className="text-[12px] font-medium text-white bg-[#1a365d] px-4 py-1.5 rounded-md hover:bg-[#c8860a] transition-all duration-200"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link
+                href="/login"
+                className="text-[12px] font-medium text-[#1a365d] border-[1.5px] border-[#1a365d] px-4 py-1.5 rounded-md no-underline hover:bg-[#1a365d] hover:text-white transition-all duration-200"
+              >
+                Log in
+              </Link>
+              <Link
+                href="/register"
+                className="text-[12px] font-medium text-white bg-[#1a365d] px-4 py-1.5 rounded-md no-underline hover:bg-[#c8860a] transition-all duration-200"
+              >
+                Register
+              </Link>
+            </>
+          )}
         </div>
 
         <label className="btn btn-circle swap swap-rotate md:hidden bg-transparent border-none text-[#1a365d] shadow-none">
@@ -91,20 +124,34 @@ export default function Navbar() {
             ))}
           </div>
           <div className="flex gap-2">
-            <Link
-              href="/login"
-              onClick={() => setIsOpen(false)}
-              className="flex-1 text-center text-[13px] font-medium text-[#1a365d] border-[1.5px] border-[#1a365d] py-2 rounded-md no-underline"
-            >
-              Log in
-            </Link>
-            <Link
-              href="/register"
-              onClick={() => setIsOpen(false)}
-              className="flex-1 text-center text-[13px] font-medium text-white bg-[#1a365d] py-2 rounded-md no-underline"
-            >
-              Register
-            </Link>
+            {session ? (
+              <button
+                onClick={() => {
+                  authClient.signOut();
+                  setIsOpen(false);
+                }}
+                className="flex-1 text-center text-[13px] font-medium text-white bg-[#1a365d] py-2 rounded-md"
+              >
+                Logout
+              </button>
+            ) : (
+              <>
+                <Link
+                  href="/login"
+                  onClick={() => setIsOpen(false)}
+                  className="flex-1 text-center text-[13px] font-medium text-[#1a365d] border-[1.5px] border-[#1a365d] py-2 rounded-md no-underline"
+                >
+                  Log in
+                </Link>
+                <Link
+                  href="/register"
+                  onClick={() => setIsOpen(false)}
+                  className="flex-1 text-center text-[13px] font-medium text-white bg-[#1a365d] py-2 rounded-md no-underline"
+                >
+                  Register
+                </Link>
+              </>
+            )}
           </div>
         </div>
       )}
