@@ -10,63 +10,24 @@ import { MdEmail, MdPhone, MdLocationOn } from "react-icons/md";
 
 export default function Footer() {
   return (
-    <footer style={{ background: "#1a365d", color: "#fff", marginTop: "60px" }}>
+    <footer className="bg-[#1a365d] text-white mt-16">
       <div className="max-w-[1600px] mx-auto px-6 py-12">
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "2fr 1fr 1fr",
-            gap: "48px",
-            paddingBottom: "40px",
-            borderBottom: "1px solid rgba(255,255,255,0.1)",
-          }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-12 pb-10 border-b border-white/10">
           <div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "8px",
-                marginBottom: "16px",
-              }}
-            >
-              <div
-                style={{
-                  width: "32px",
-                  height: "32px",
-                  background: "#c8860a",
-                  borderRadius: "7px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-8 h-8 bg-[#c8860a] rounded-lg flex items-center justify-center">
                 <BsBook color="#fff" size={16} />
               </div>
-              <span
-                style={{
-                  fontSize: "17px",
-                  fontWeight: "700",
-                  fontFamily: "Georgia, serif",
-                }}
-              >
-                Book<span style={{ color: "#e8a020" }}>Nest</span>
-                <span style={{ color: "#e8a020" }}>.</span>
+              <span className="text-[17px] font-bold font-serif">
+                Book<span className="text-[#e8a020]">Nest</span>
+                <span className="text-[#e8a020]">.</span>
               </span>
             </div>
-            <p
-              style={{
-                fontSize: "13px",
-                color: "rgba(255,255,255,0.6)",
-                lineHeight: "1.7",
-                maxWidth: "280px",
-                marginBottom: "20px",
-              }}
-            >
+            <p className="text-[13px] text-white/60 leading-relaxed max-w-[280px] mb-5">
               A seamless digital library experience. Explore, borrow, and read
               thousands of titles from anywhere.
             </p>
-            <div style={{ display: "flex", gap: "12px" }}>
+            <div className="flex gap-3">
               {[
                 { icon: <BsFacebook size={16} />, href: "#" },
                 { icon: <BsTwitterX size={16} />, href: "#" },
@@ -76,19 +37,7 @@ export default function Footer() {
                 <a
                   key={i}
                   href={s.href}
-                  style={{
-                    width: "34px",
-                    height: "34px",
-                    background: "rgba(255,255,255,0.08)",
-                    borderRadius: "8px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "rgba(255,255,255,0.7)",
-                    textDecoration: "none",
-                    transition: "all 0.2s",
-                  }}
-                  className="hover:bg-[#c8860a] hover:text-white"
+                  className="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center text-white/70 no-underline hover:bg-[#c8860a] hover:text-white transition-all duration-200"
                 >
                   {s.icon}
                 </a>
@@ -97,21 +46,10 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4
-              style={{
-                fontSize: "13px",
-                fontWeight: "600",
-                textTransform: "uppercase",
-                letterSpacing: "0.08em",
-                color: "#e8a020",
-                marginBottom: "16px",
-              }}
-            >
+            <h4 className="text-[11px] font-semibold uppercase tracking-widest text-[#e8a020] mb-4">
               Quick Links
             </h4>
-            <div
-              style={{ display: "flex", flexDirection: "column", gap: "10px" }}
-            >
+            <div className="flex flex-col gap-2.5">
               {[
                 { label: "Home", href: "/" },
                 { label: "All Books", href: "/all-books" },
@@ -122,13 +60,7 @@ export default function Footer() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  style={{
-                    fontSize: "13px",
-                    color: "rgba(255,255,255,0.6)",
-                    textDecoration: "none",
-                    transition: "color 0.2s",
-                  }}
-                  className="hover:text-[#e8a020]"
+                  className="text-[13px] text-white/60 no-underline hover:text-[#e8a020] transition-colors duration-200"
                 >
                   {item.label}
                 </Link>
@@ -137,21 +69,10 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4
-              style={{
-                fontSize: "13px",
-                fontWeight: "600",
-                textTransform: "uppercase",
-                letterSpacing: "0.08em",
-                color: "#e8a020",
-                marginBottom: "16px",
-              }}
-            >
+            <h4 className="text-[11px] font-semibold uppercase tracking-widest text-[#e8a020] mb-4">
               Contact Us
             </h4>
-            <div
-              style={{ display: "flex", flexDirection: "column", gap: "12px" }}
-            >
+            <div className="flex flex-col gap-3">
               {[
                 { icon: <MdEmail size={15} />, text: "support@booknest.com" },
                 { icon: <MdPhone size={15} />, text: "+880 1700-000000" },
@@ -162,15 +83,9 @@ export default function Footer() {
               ].map((item, i) => (
                 <div
                   key={i}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    fontSize: "13px",
-                    color: "rgba(255,255,255,0.6)",
-                  }}
+                  className="flex items-center gap-2 text-[13px] text-white/60"
                 >
-                  <span style={{ color: "#e8a020" }}>{item.icon}</span>
+                  <span className="text-[#e8a020]">{item.icon}</span>
                   {item.text}
                 </div>
               ))}
@@ -178,15 +93,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div
-          style={{
-            paddingTop: "20px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.4)" }}>
+        <div className="pt-5 flex items-center justify-between flex-wrap gap-2">
+          <p className="text-[12px] text-white/40">
             &copy; 2025 BookNest. All rights reserved.
           </p>
         </div>
