@@ -10,13 +10,14 @@ export default function BorrowBook({ book }) {
   const router = useRouter();
   const [borrowed, setBorrowed] = useState(false);
 
+  const storageKey = `borrowedBooks_${session?.user?.email}`;
+
   useEffect(() => {
-    const borrowedBooks = JSON.parse(
-      localStorage.getItem("borrowedBooks") || "[]",
-    );
+    if (!session) return;
+    const borrowedBooks = JSON.parse(localStorage.getItem(storageKey) || "[]");
     const alreadyBorrowed = borrowedBooks.some((b) => b.id === book.id);
-    setBorrowed(alreadyBorrowed);
-  }, [book.id]);
+    if (alreadyBorrowed) setBorrowed(true);
+  }, [book.id, session]);
 
   const handleBorrow = () => {
     if (!session) {
@@ -30,11 +31,9 @@ export default function BorrowBook({ book }) {
       return;
     }
 
-    const borrowedBooks = JSON.parse(
-      localStorage.getItem("borrowedBooks") || "[]",
-    );
+    const borrowedBooks = JSON.parse(localStorage.getItem(storageKey) || "[]");
     borrowedBooks.push({ id: book.id, title: book.title });
-    localStorage.setItem("borrowedBooks", JSON.stringify(borrowedBooks));
+    localStorage.setItem(storageKey, JSON.stringify(borrowedBooks));
     setBorrowed(true);
 
     toast.success(`"${book.title}" borrowed successfully!`);

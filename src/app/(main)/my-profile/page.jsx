@@ -3,10 +3,19 @@ import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { MdEmail } from "react-icons/md";
+import { useEffect, useState } from "react";
 
 export default function MyProfilePage() {
   const { data: session, isPending } = authClient.useSession();
   const router = useRouter();
+  const [borrowedCount, setBorrowedCount] = useState(0);
+
+  useEffect(() => {
+    if (!session) return;
+    const storageKey = `borrowedBooks_${session?.user?.email}`;
+    const borrowedBooks = JSON.parse(localStorage.getItem(storageKey) || "[]");
+    setBorrowedCount(borrowedBooks.length);
+  }, [session]);
 
   if (isPending) {
     return (
@@ -24,7 +33,6 @@ export default function MyProfilePage() {
   return (
     <div className="max-w-2xl mx-auto py-14">
       <div className="bg-white border border-[#d8d0c4] rounded-2xl overflow-hidden shadow-sm">
-
         <div className="px-8 pb-8">
           <div className="my-4">
             {session.user.image ? (
@@ -51,9 +59,9 @@ export default function MyProfilePage() {
 
           <div className="flex border border-[#d8d0c4] rounded-xl overflow-hidden mb-6">
             {[
-              { val: "0", label: "Borrowed" },
-              { val: "0", label: "Active" },
-              { val: "0", label: "Returned" },
+              { val: borrowedCount, label: "Borrowed" },
+              { val: borrowedCount, label: "Active" },
+              { val: 0, label: "Returned" },
             ].map((stat, i) => (
               <div
                 key={i}
