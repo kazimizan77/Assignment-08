@@ -41,12 +41,12 @@ export default async function FeaturedBooks() {
             key={book.id}
             className="bg-white border border-[#d8d0c4] rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group"
           >
-            <div className="relative h-52 bg-[#e8e2d8] overflow-hidden">
+            <div className="relative w-full h-72 bg-[#e8e2d8] flex items-center justify-center overflow-hidden p-4">
               <Image
                 src={book.image_url}
                 alt={book.title}
                 fill
-                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                className="object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-lg"
               />
               <span
                 className={`absolute top-3 left-3 text-xs font-semibold px-2.5 py-1 rounded-full ${categoryColors[book.category] || "bg-gray-100 text-gray-700"}`}
