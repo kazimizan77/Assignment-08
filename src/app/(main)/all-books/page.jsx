@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { BsSearch } from "react-icons/bs";
@@ -10,13 +10,29 @@ const categoryColors = {
   Tech: "bg-emerald-100 text-emerald-700",
 };
 
-export default function AllBooksPage({ searchParams }) {
+export default function AllBooksPage() {
+  const [books, setBooks] = useState([]);
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
 
+  useEffect(() => {
+    fetch("/data.json")
+      .then((res) => res.json())
+      .then((data) => setBooks(data));
+  }, []);
+
+  const filtered = books.filter((book) => {
+    const matchSearch =
+      book.title.toLowerCase().includes(search.toLowerCase()) ||
+      book.author.toLowerCase().includes(search.toLowerCase());
+    const matchCategory =
+      activeCategory === "All" || book.category === activeCategory;
+    return matchSearch && matchCategory;
+  });
+
   return (
     <div className="py-10">
-      <div className="mb-8">
+      <div className="mb-6">
         <h1 className="text-3xl font-bold text-[#1a365d] font-serif mb-2">
           All Books
         </h1>
@@ -25,7 +41,7 @@ export default function AllBooksPage({ searchParams }) {
         </p>
       </div>
 
-      <div className="relative mb-8">
+      <div className="relative mb-5">
         <BsSearch
           className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8a8aaa]"
           size={15}
@@ -39,8 +55,24 @@ export default function AllBooksPage({ searchParams }) {
         />
       </div>
 
+      <div className="flex gap-2 flex-wrap mb-6 lg:hidden">
+        {["All", "Story", "Tech", "Science"].map((cat) => (
+          <button
+            key={cat}
+            onClick={() => setActiveCategory(cat)}
+            className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-all duration-200 ${
+              activeCategory === cat
+                ? "bg-[#1a365d] text-white border-[#1a365d]"
+                : "bg-white text-[#4a4a6a] border-[#d8d0c4] hover:border-[#1a365d]"
+            }`}
+          >
+            {cat === "All" ? "All Books" : cat}
+          </button>
+        ))}
+      </div>
+
       <div className="flex gap-8">
-        <div className="w-44 flex-shrink-0">
+        <div className="hidden lg:block w-44 flex-shrink-0">
           <p className="text-[11px] font-semibold uppercase tracking-widest text-[#8a8aaa] mb-3">
             Categories
           </p>
@@ -59,92 +91,55 @@ export default function AllBooksPage({ searchParams }) {
           ))}
         </div>
 
-        <BooksGrid search={search} activeCategory={activeCategory} />
-      </div>
-    </div>
-  );
-}
-
-async function fetchBooks() {
-  const res = await fetch("http://localhost:3000/data.json", {
-    cache: "no-store",
-  });
-  return res.json();
-}
-
-function BooksGrid({ search, activeCategory }) {
-  const [books, setBooks] = useState([]);
-  const [loaded, setLoaded] = useState(false);
-
-  if (!loaded) {
-    fetchBooks().then((data) => {
-      setBooks(data);
-      setLoaded(true);
-    });
-  }
-
-  const filtered = books.filter((book) => {
-    const matchSearch =
-      book.title.toLowerCase().includes(search.toLowerCase()) ||
-      book.author.toLowerCase().includes(search.toLowerCase());
-    const matchCategory =
-      activeCategory === "All" || book.category === activeCategory;
-    return matchSearch && matchCategory;
-  });
-
-  if (!loaded) {
-    return (
-      <div className="flex-1 flex items-center justify-center">
-        <span className="loading loading-spinner loading-lg text-[#1a365d]" />
-      </div>
-    );
-  }
-
-  return (
-    <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-      {filtered.length === 0 ? (
-        <div className="col-span-4 text-center py-20 text-[#8a8aaa]">
-          No books found.
-        </div>
-      ) : (
-        filtered.map((book) => (
-          <div
-            key={book.id}
-            className="bg-white border border-[#d8d0c4] rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group"
-          >
-            <div className="relative h-52 bg-[#e8e2d8] overflow-hidden">
-              <Image
-                src={book.image_url}
-                alt={book.title}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-              <span
-                className={`absolute top-3 left-3 text-xs font-semibold px-2.5 py-1 rounded-full ${categoryColors[book.category] || "bg-gray-100 text-gray-700"}`}
-              >
-                {book.category}
-              </span>
-            </div>
-            <div className="p-4">
-              <h3 className="text-sm font-bold text-[#1a1a2e] mb-1 leading-tight line-clamp-2 font-serif">
-                {book.title}
-              </h3>
-              <p className="text-xs text-[#4a4a6a] mb-3">{book.author}</p>
-              <div className="flex items-center justify-between">
-                <span className="text-xs text-[#8a8aaa]">
-                  {book.available_quantity} copies
-                </span>
-                <Link
-                  href={`/books/${book.id}`}
-                  className="btn btn-xs bg-[#1a365d] text-white border-none hover:bg-[#c8860a] transition-colors duration-200 no-underline"
-                >
-                  Details
-                </Link>
-              </div>
-            </div>
+        {filtered.length === 0 ? (
+          <div className="flex-1 flex items-center justify-center py-20 text-[#8a8aaa]">
+            No books found.
           </div>
-        ))
-      )}
+        ) : (
+          <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {filtered.map((book) => (
+              <div
+                key={book.id}
+                className="bg-white border border-[#d8d0c4] rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 group"
+              >
+                <div className="relative w-full h-72 bg-[#e8e2d8] flex items-center justify-center overflow-hidden p-4">
+                  <Image
+                    src={book.image_url}
+                    alt={book.title}
+                    fill
+                    className="object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-lg"
+                  />
+                </div>
+
+                <div className="p-4">
+                  <div className="mb-2">
+                    <span
+                      className={`text-xs font-semibold px-2.5 py-0.5 rounded-full ${categoryColors[book.category] || "bg-gray-100 text-gray-700"}`}
+                    >
+                      {book.category}
+                    </span>
+                  </div>
+                  <h3 className="text-sm font-bold text-[#1a1a2e] mb-1 leading-tight font-serif">
+                    {book.title}
+                  </h3>
+                  <p className="text-xs text-[#4a4a6a] mb-3">{book.author}</p>
+                  <div className="border-t border-[#f0ece4] pt-3 flex items-center justify-between">
+                    <span className="text-xs text-[#8a8aaa]">
+                      {book.available_quantity} copies
+                    </span>
+                    <Link
+                      href={`/books/${book.id}`}
+                      className="btn btn-xs bg-[#1a365d] text-white border-none hover:bg-[#c8860a] transition-colors duration-200 no-underline"
+                    >
+                      Details
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
