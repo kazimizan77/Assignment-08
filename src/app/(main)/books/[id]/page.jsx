@@ -2,12 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { BsArrowLeft } from "react-icons/bs";
 import BorrowButton from "@/components/ui/BorrowBook";
+import { readFileSync } from "fs";
+import { join } from "path";
 
 async function getBook(id) {
-  const res = await fetch("http://localhost:3000/data.json", {
-    cache: "no-store",
-  });
-  const books = await res.json();
+  const filePath = join(process.cwd(), "public", "data.json");
+  const data = readFileSync(filePath, "utf-8");
+  const books = JSON.parse(data);
   return books.find((book) => book.id === id);
 }
 

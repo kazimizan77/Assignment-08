@@ -1,12 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
+import { readFileSync } from "fs";
+import { join } from "path";
 
 async function getBooks() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/data.json`, {
-    cache: "no-store",
-  });
-  const data = await res.json();
-  return data.slice(0, 4);
+  const filePath = join(process.cwd(), "public", "data.json");
+  const data = readFileSync(filePath, "utf-8");
+  const books = JSON.parse(data);
+  return books.slice(0, 4);
 }
 
 export default async function FeaturedBooks() {
