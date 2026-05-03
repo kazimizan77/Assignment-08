@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 async function getBooks() {
-  const res = await fetch("http://localhost:3000/data.json", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/data.json`, {
     cache: "no-store",
   });
   const data = await res.json();
