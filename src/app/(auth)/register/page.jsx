@@ -72,7 +72,7 @@ export default function RegisterPage() {
                 name="name"
                 type="text"
                 required
-                placeholder="Kazi Rahman"
+                placeholder="Type here name"
                 className="w-full px-4 py-2.5 bg-[#f5f0e8] border border-[#d8d0c4] rounded-lg text-sm text-[#1a1a2e] outline-none focus:border-[#1a365d] transition-colors"
               />
             </div>
@@ -84,7 +84,7 @@ export default function RegisterPage() {
                 name="email"
                 type="email"
                 required
-                placeholder="you@example.com"
+                placeholder="Type your email"
                 className="w-full px-4 py-2.5 bg-[#f5f0e8] border border-[#d8d0c4] rounded-lg text-sm text-[#1a1a2e] outline-none focus:border-[#1a365d] transition-colors"
               />
             </div>
@@ -95,7 +95,7 @@ export default function RegisterPage() {
               <input
                 name="image"
                 type="url"
-                placeholder="https://example.com/photo.jpg"
+                placeholder="Type here photo url"
                 className="w-full px-4 py-2.5 bg-[#f5f0e8] border border-[#d8d0c4] rounded-lg text-sm text-[#1a1a2e] outline-none focus:border-[#1a365d] transition-colors"
               />
             </div>
@@ -107,7 +107,7 @@ export default function RegisterPage() {
                 name="password"
                 type="password"
                 required
-                placeholder="••••••••"
+                placeholder="Type password"
                 className="w-full px-4 py-2.5 bg-[#f5f0e8] border border-[#d8d0c4] rounded-lg text-sm text-[#1a1a2e] outline-none focus:border-[#1a365d] transition-colors"
               />
             </div>
