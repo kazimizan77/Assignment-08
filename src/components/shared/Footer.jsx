@@ -69,7 +69,7 @@ export default function Footer() {
                 },
                 {
                   icon: <BsTwitterX />,
-                  label: "X",
+                  label: "Twitter/X",
                   href: "#",
                 },
 

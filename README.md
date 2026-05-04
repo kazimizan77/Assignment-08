@@ -1,36 +1,26 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📚 BookNest
 
-## Getting Started
+## 🎯 Purpose
+**BookNest** is a modern and user-friendly library management frontend application. Its primary purpose is to provide a seamless platform for readers to explore a curated collection of books, filter titles by categories, search for specific authors or titles, and securely borrow books using an intuitive authentication system.
 
-First, run the development server:
+## 🌐 Live URL
+**Live Project Link:** https://book-nest-three-zeta.vercel.app
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Key Features
+*   **Secure Authentication:** User login and registration system with both Email/Password and Google Social Login.
+*   **Protected Routes:** Private routes (like Borrowing and User Profile) are secured using Next.js Middleware, ensuring only authenticated users can access them.
+*   **Dynamic Search & Filtering:** Users can instantly search for books by title or author and filter the collection by categories (e.g., Science, Story, Tech).
+*   **Smart Borrowing System:** Users can borrow books with a single click. The system prevents duplicate borrowing and tracks user-specific borrowed items using session-based local storage.
+*   **User Dashboard:** A personalized profile page displaying the user's information and statistics of their borrowed and active books.
+*   **Responsive UI:** A fully responsive, modern design tailored for both desktop and mobile devices.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📦 NPM Packages Used
+This project utilizes several essential npm packages to enhance functionality and user experience:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+*   **`next`**: The core React framework used for building the application (App Router).
+*   **`react` / `react-dom`**: For building the user interfaces and components.
+*   **`better-auth`**: For handling secure authentication (Email/Password and OAuth).
+*   **`tailwindcss`**: A utility-first CSS framework for rapid and custom UI styling.
+*   **`react-icons`**: For integrating high-quality, customizable icons (e.g., `BsBook`, `FcGoogle`, `BsSearch`).
+*   **`react-hot-toast`**: For providing elegant, real-time push notifications and user feedback (e.g., success or error messages during login/borrowing).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

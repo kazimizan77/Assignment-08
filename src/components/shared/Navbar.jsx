@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import Image from "next/image";
 import { BsBook } from "react-icons/bs";
 import { authClient } from "@/lib/auth-client";
 
