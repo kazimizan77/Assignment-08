@@ -66,7 +66,7 @@ export default function RegisterPage() {
           <form onSubmit={handleRegister} className="flex flex-col gap-4">
             <div>
               <label className="text-xs font-medium text-[#4a4a6a] block mb-1.5">
-                Full name
+                Full Name
               </label>
               <input
                 name="name"
@@ -78,7 +78,7 @@ export default function RegisterPage() {
             </div>
             <div>
               <label className="text-xs font-medium text-[#4a4a6a] block mb-1.5">
-                Email address
+                Email Address
               </label>
               <input
                 name="email"

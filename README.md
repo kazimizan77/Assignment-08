@@ -26,7 +26,7 @@ The following essential packages were used to build this high-performance applic
 *   **`react-icons`**: For high-quality vector icons used throughout the navigation and call-to-action buttons.
 *   **`react-hot-toast`**: For providing elegant, non-blocking notifications for user actions (e.g., successful borrowing, login errors).
 
-    ```
-2.  **Install dependencies:**
+
+**Install dependencies:**
     ```bash
     npm install

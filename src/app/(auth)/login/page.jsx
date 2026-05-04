@@ -59,7 +59,7 @@ export default function LoginPage() {
           <form onSubmit={handleLogin} className="flex flex-col gap-4">
             <div>
               <label className="text-xs font-medium text-[#4a4a6a] block mb-1.5">
-                Email address
+                Email Address
               </label>
               <input
                 name="email"
