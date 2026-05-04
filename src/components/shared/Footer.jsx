@@ -7,6 +7,7 @@ import {
   BsLinkedin,
 } from "react-icons/bs";
 import { MdEmail, MdPhone, MdLocationOn } from "react-icons/md";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -15,12 +16,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-12 pb-10 border-b border-white/10">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-[#e8a020] rounded-lg flex items-center justify-center">
-                <BsBook color="#fff" size={16} />
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-8 h-8 bg-[#e8a020] rounded-lg flex items-center justify-center">
+                  <BsBook color="#fff" size={16} />
+                </div>
+                <span className="text-[17px] font-bold font-serif">
+                  Book<span className="text-[#e8a020]">Nest</span>
+                </span>
               </div>
-              <span className="text-[17px] font-bold font-serif">
-                Book<span className="text-[#c8860a]">Nest</span>{" "}
-              </span>
             </div>
             <p className="text-[13px] text-white/60 leading-relaxed max-w-[280px] mb-5">
               A seamless digital library experience. Explore, borrow, and read
