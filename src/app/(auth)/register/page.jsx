@@ -49,7 +49,6 @@ export default function RegisterPage() {
           </div>
           <span className="text-xl font-bold text-[#1a365d] font-serif">
             Book<span className="text-[#c8860a]">Nest</span>
-            <span className="text-[#c8860a]">.</span>
           </span>
         </div>
 

@@ -42,7 +42,6 @@ export default function LoginPage() {
           </div>
           <span className="text-xl font-bold text-[#1a365d] font-serif">
             Book<span className="text-[#c8860a]">Nest</span>
-            <span className="text-[#c8860a]">.</span>
           </span>
         </div>
 
@@ -78,7 +77,7 @@ export default function LoginPage() {
                 name="password"
                 type="password"
                 required
-                placeholder="••••••••"
+                placeholder="Type Password"
                 className="w-full px-4 py-2.5 bg-[#f5f0e8] border border-[#d8d0c4] rounded-lg text-sm text-[#1a1a2e] outline-none focus:border-[#1a365d] transition-colors"
               />
             </div>
