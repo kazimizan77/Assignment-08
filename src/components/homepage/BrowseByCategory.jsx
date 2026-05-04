@@ -48,12 +48,12 @@ export default function BrowseByCategory() {
             href={`/all-books?category=${cat.name}`}
             className={`border-2 rounded-xl p-6 transition-all duration-300 hover:shadow-md hover:-translate-y-1 no-underline ${cat.color}`}
           >
-            <div className="w-16 h-16 mb-4">
+            <div className="w-16 h-16">
               <Image
                 src={cat.image}
                 alt={cat.name}
-                width={64}
-                height={64}
+                width={50}
+                height={50}
                 className="object-contain"
               />
             </div>

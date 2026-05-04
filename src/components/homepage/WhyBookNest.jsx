@@ -1,21 +1,21 @@
-import { BsBookHalf, BsCloudCheck, BsCollection } from "react-icons/bs";
+import Image from "next/image";
 
 export default function WhyBookNest() {
   const features = [
     {
-      icon: <BsBookHalf size={28} />,
+      image: "/categories/book.png",
       title: "Free to Borrow",
       description:
         "No membership fees, no late fines. Borrow any book from our collection completely free of charge.",
     },
     {
-      icon: <BsCloudCheck size={28} />,
+      image: "/categories/digital.png",
       title: "Digital Access",
       description:
         "Access your borrowed books from any device, anywhere in the world. Your library is always with you.",
     },
     {
-      icon: <BsCollection size={28} />,
+      image: "/categories/huge.png",
       title: "Huge Collection",
       description:
         "Explore hundreds of titles across stories, science, and technology — with new arrivals every week.",
@@ -35,10 +35,16 @@ export default function WhyBookNest() {
         {features.map((feature, i) => (
           <div
             key={i}
-            className="bg-white border border-[#d8d0c4] rounded-xl p-6 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group"
+            className="bg-white border border-[#d8d0c4] rounded-xl p-6 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
           >
-            <div className="w-12 h-12 bg-[#1a365d]/08 rounded-xl flex items-center justify-center text-[#1a365d] mb-4 group-hover:bg-[#1a365d] group-hover:text-white transition-all duration-300">
-              {feature.icon}
+            <div className="w-16 h-16">
+              <Image
+                src={feature.image}
+                alt={feature.title}
+                width={50}
+                height={50}
+                className="object-contain"
+              />
             </div>
             <h3 className="text-base font-bold text-[#1a365d] font-serif mb-2">
               {feature.title}
