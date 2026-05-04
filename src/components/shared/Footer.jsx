@@ -10,9 +10,9 @@ import { MdEmail, MdPhone, MdLocationOn } from "react-icons/md";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1a365d] text-white mt-16">
-      <div className="max-w-[1600px] mx-auto px-6 py-10">
-        <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-12 pb-10 border-b border-white/10">
+    <footer className="bg-[#1a365d] text-white mt-10">
+      <div className="max-w-[1600px] mx-auto px-6 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-12 pb-7 border-b border-white/10">
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 bg-[#e8a020] rounded-lg flex items-center justify-center">
@@ -22,14 +22,14 @@ export default function Footer() {
                 Book<span className="text-[#e8a020]">Nest</span>
               </span>
             </div>
-            <p className="text-[13px] text-white/60 leading-relaxed max-w-[260px]">
+            <p className="text-sm text-white/60 leading-relaxed max-w-[260px]">
               A seamless digital library experience. Explore, borrow, and read
               thousands of titles from anywhere, anytime.
             </p>
           </div>
 
           <div>
-            <h4 className="text-[11px] font-semibold uppercase tracking-widest text-[#e8a020] mb-5">
+            <h4 className="text-sm font-semibold uppercase tracking-widest text-[#e8a020] mb-5">
               About Us
             </h4>
             <div className="flex flex-col gap-3">
@@ -43,7 +43,7 @@ export default function Footer() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-[13px] text-white/60 no-underline hover:text-[#e8a020] transition-colors duration-200"
+                  className="text-[12px] text-white/60 no-underline hover:text-[#e8a020] transition-colors duration-200"
                 >
                   {item.label}
                 </Link>
@@ -52,7 +52,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-[11px] font-semibold uppercase tracking-widest text-[#e8a020] mb-5">
+            <h4 className="text-sm font-semibold uppercase tracking-widest text-[#e8a020] mb-5">
               Social Links
             </h4>
             <div className="flex flex-col gap-3">
@@ -92,15 +92,15 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-[11px] font-semibold uppercase tracking-widest text-[#e8a020] mb-5">
+            <h4 className="text-sm font-semibold uppercase tracking-widest text-[#e8a020] mb-5">
               Contact Us
             </h4>
             <div className="flex flex-col gap-3">
               {[
-                { icon: <MdEmail size={15} />, text: "support@booknest.com" },
-                { icon: <MdPhone size={15} />, text: "+880 1700-000000" },
+                { icon: <MdEmail size={14} />, text: "support@booknest.com" },
+                { icon: <MdPhone size={14} />, text: "+880 1700-000000" },
                 {
-                  icon: <MdLocationOn size={15} />,
+                  icon: <MdLocationOn size={14} />,
                   text: "Dhaka, Bangladesh",
                 },
               ].map((item, i) => (
@@ -116,7 +116,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-[12px] text-white/40">
             &copy; 2026 BookNest. All rights reserved.
           </p>

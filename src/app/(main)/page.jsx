@@ -6,7 +6,7 @@ import BrowseByCategory from "@/components/homepage/BrowseByCategory";
 
 export default function Homepage() {
   return (
-    <div className="pb-16">
+    <div className="">
       <Banner />
       <MarqueeSection />
       <FeaturedBooks />
