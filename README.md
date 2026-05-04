@@ -1,4 +1,4 @@
-# 📚 BookNest - Library Management System
+# 📚 BookNest - Online Book Borrowing Platform
 
 ## 🌐 Live URL
 **Live Project Link:** https://book-nest-three-zeta.vercel.app
@@ -28,5 +28,6 @@ The following essential packages were used to build this high-performance applic
 
 
 **Install dependencies:**
+
     ```bash
     npm install
